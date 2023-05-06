@@ -1,13 +1,13 @@
 package whalewarehouse;
 
 public class Shoe {
-    private Integer id;
+    private Long id;
 
     private String barCode;
 
     private String description;
 
-    public Shoe(Integer id, String barCode, String description) {
+    public Shoe(Long id, String barCode, String description) {
         this.id = id;
         this.barCode = barCode;
         this.description = description;
@@ -16,12 +16,8 @@ public class Shoe {
     public Shoe() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getBarCode() {
