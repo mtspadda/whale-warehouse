@@ -1,6 +1,8 @@
 server:
   port: 8090
 spring:
-  autoconfigure:
-    exclude:
-      - org.s pringframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  datasource:
+    url: jdbc:postgresql://localhost:5432/whale-warehouse-postgres
+    username: DB_USER
+    password: DB_PASSWORD
+    driverClassName: org.postgresql.Driver
