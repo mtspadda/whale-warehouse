@@ -2,7 +2,7 @@ server:
   port: 8090
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/whale-warehouse-postgres
-    username: DB_USER
-    password: DB_PASSWORD
+    url: jdbc:postgresql://localhost:5432/whalewarehouse
+    username: postgres
+    password: password
     driverClassName: org.postgresql.Driver
