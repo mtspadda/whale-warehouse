@@ -8,22 +8,15 @@ import whalewarehouse.Shoe;
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public class ShoeService {
+public interface ShoeService {
 
-    private final ShoeRepository shoeRepository;
 
-    @Autowired
-    public ShoeService(ShoeRepository shoeRepository){
-        this.shoeRepository = shoeRepository;
-    }
-    public List<Shoe> getAllShoes(){
-        return shoeRepository.findAll();
-    }
+    List < Shoe > findAll();
 
-    public void addNewShoe(Shoe shoe) {
-        Optional<Shoe> shoeByBarCode =
-        shoeRepository.findShoeByBarCode(shoe.getBarCode());
+    void save(Shoe shoe);
 
-    }
+    Optional < Shoe > findById(Long id);
+
+    void delete(long id);
+
 }
