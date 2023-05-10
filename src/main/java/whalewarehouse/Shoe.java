@@ -1,10 +1,19 @@
 package whalewarehouse;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "shoe")
 public class Shoe {
+
+    @Id
+    @GeneratedValue
     private Long id;
 
+    @Column(name = "bar_code", length = 100, nullable = false)
     private String barCode;
 
+    @Column(name = "description", length = 250, nullable = false)
     private String description;
 
     public Shoe(Long id, String barCode, String description) {

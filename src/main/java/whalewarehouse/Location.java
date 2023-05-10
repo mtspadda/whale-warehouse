@@ -1,13 +1,22 @@
 package whalewarehouse;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "location")
 public class Location {
 
+    @Id
+    @GeneratedValue
     private Integer id;
 
+    @Column(name = "bar_code", length = 20, nullable = false)
     private String barCode;
 
+    @Column(name = "location_code", length = 20, nullable = false)
     private String locationCode;
 
+    @Column(name = "location_type", length = 20, nullable = false)
     private LocationType locationType;
 
     public Location(Integer id, String barCode, String locationCode, LocationType locationType) {
