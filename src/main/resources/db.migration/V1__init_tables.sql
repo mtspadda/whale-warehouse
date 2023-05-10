@@ -15,3 +15,5 @@ CREATE TABLE location(
     location_code VARCHAR(20),
     location_type VARCHAR(10),
 );
+
+ROLLBACK;
