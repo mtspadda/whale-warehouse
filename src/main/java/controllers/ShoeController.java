@@ -13,30 +13,32 @@ import java.util.Optional;
 @RequestMapping(path = "api/v1/shoe")
 public class ShoeController {
 
-    private final ShoeService shoeService;
+//    private final ShoeService shoeService;
+
+    public ShoeRepository shoeRepository;
     @Autowired
-    public ShoeController(ShoeService shoeService) {
-        this.shoeService = shoeService;
+    public ShoeController(ShoeRepository shoeRepository) {
+        this.shoeRepository = shoeRepository;
     }
 
 
     @GetMapping
     public List<Shoe> getAllShoes(){
-        return shoeService.findAll();
+        return shoeRepository.findAll();
     }
 
     @PostMapping
     public void saveShoe(@RequestBody Shoe shoe){
-        shoeService.save(shoe);
+        shoeRepository.save(shoe);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Shoe> updateShoe(@PathVariable(value = "id") Long id, @RequestBody Shoe requestShoe){
-        Optional<Shoe> shoe = shoeService.findById(id);
-
-        shoeService.save(requestShoe);
-
-        return ResponseEntity.ok(requestShoe);
+//    @PutMapping("/{id}")
+//    public ResponseEntity<Shoe> updateShoe(@PathVariable(value = "id") Long id, @RequestBody Shoe requestShoe){
+//        Optional<Shoe> shoe = shoeService.findById(id);
+//
+//        shoeService.save(requestShoe);
+//
+//        return ResponseEntity.ok(requestShoe);
 
     }
 }

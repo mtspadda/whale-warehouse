@@ -8,6 +8,7 @@ import whalewarehouse.Shoe;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public interface ShoeService {
 
 
