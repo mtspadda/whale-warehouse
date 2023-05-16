@@ -13,7 +13,7 @@ import java.util.Optional;
 @RequestMapping(path = "api/v1/shoe")
 public class ShoeController {
 
-//    private final ShoeService shoeService;
+//  private final ShoeService shoeService;
 
     public ShoeRepository shoeRepository;
     @Autowired
@@ -40,5 +40,4 @@ public class ShoeController {
 //
 //        return ResponseEntity.ok(requestShoe);
 
-    }
 }

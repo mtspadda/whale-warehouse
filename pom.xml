@@ -36,6 +36,11 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -51,17 +56,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<profiles>
-		<profile>
-			<id>h2</id>
-			<build>
-				<finalName>h2-enviroment</finalName>
-				<filters>
-					<filter>src/main/resources/application-h2.yml</filter>
-				</filters>
-			</build>
-		</profile>
-	</profiles>
 
 </project>
