@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Shoe {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "bar_code", length = 100, nullable = false)
