@@ -1,6 +1,8 @@
 package whalewarehouse;
 
 import jakarta.persistence.*;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 @Entity
 @Table(name = "location")
@@ -56,5 +58,10 @@ public class Location {
 
     public void setLocationType(LocationType locationType) {
         this.locationType = locationType;
+    }
+
+    @Repository
+    public static interface ShoeRepository extends JpaRepository<Shoe, Long> {
+
     }
 }
