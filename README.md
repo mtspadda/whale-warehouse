@@ -10,7 +10,7 @@ These instructions will get you a copy of the Whale Warehouse API up and running
 
 To run the Whale Warehouse API, you need to have the following software installed:
 
-- Java Development Kit (JDK) 17 or higher
+- Java Development Kit (JDK) 8 or higher
 - Apache Maven
 
 ### Installing
