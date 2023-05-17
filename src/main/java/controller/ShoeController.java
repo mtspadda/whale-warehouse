@@ -1,8 +1,8 @@
-package controllers;
+package repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import whalewarehouse.Shoe;
+import model.Shoe;
 
 import java.util.List;
 
@@ -10,21 +10,21 @@ import java.util.List;
 @RequestMapping(path = "api/v1/shoe")
 public class ShoeController {
 
-//  private final ShoeService shoeService;
-
-    public final ShoeRepository shoeRepository;
+    //  private final ShoeService shoeService;
     @Autowired
+    public final ShoeRepository shoeRepository;
+
     public ShoeController(ShoeRepository shoeRepository) {
         this.shoeRepository = shoeRepository;
     }
 
     @GetMapping
-    public List<Shoe> getAllShoes(){
+    public List<Shoe> getAllShoes() {
         return shoeRepository.findAll();
     }
 
     @PostMapping
-    public void saveShoe(@RequestBody Shoe shoe){
+    public void saveShoe(@RequestBody Shoe shoe) {
         shoeRepository.save(shoe);
     }
 

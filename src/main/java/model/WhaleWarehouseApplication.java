@@ -1,6 +1,6 @@
 package whalewarehouse;
 
-import controllers.ShoeRepository;
+import repository.ShoeRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,17 +14,11 @@ public class WhaleWarehouseApplication {
     }
 
     @Bean
-    CommandLineRunner initDataBase(ShoeRepository shoeRepository) {
+    CommandLineRunner initDataBase(ShoeRepository shoeRepository){
         return args -> {
             shoeRepository.deleteAll();
-
-            Shoe shoe = new Shoe();
-            shoe.setDescription("Adidas Adilete");
-            shoe.setBarCode("78998723782");
-
-            shoeRepository.save(shoe);
         };
-
     }
+
 
 }
