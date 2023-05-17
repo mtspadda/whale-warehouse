@@ -1,4 +1,4 @@
-package whalewarehouse;
+package model;
 
 import jakarta.persistence.*;
 

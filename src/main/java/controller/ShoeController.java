@@ -1,39 +1,54 @@
-package repository;
+package controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import exceptions.ResourceNotFoundException;
 import model.Shoe;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import service.ShoeService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/v1/shoe")
+@RequestMapping("/api/v1/shoes")
 public class ShoeController {
 
-    //  private final ShoeService shoeService;
-    @Autowired
-    public final ShoeRepository shoeRepository;
+    private ShoeService shoeService;
 
-    public ShoeController(ShoeRepository shoeRepository) {
-        this.shoeRepository = shoeRepository;
+    @Autowired
+    public ShoeController(ShoeService shoeService) {
+        this.shoeService = shoeService;
     }
 
     @GetMapping
-    public List<Shoe> getAllShoes() {
-        return shoeRepository.findAll();
+    public ResponseEntity<List<Shoe>> getAllShoes() {
+        List<Shoe> shoes = shoeService.getAll();
+        return new ResponseEntity<>(shoes, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Shoe> getShoeById(@PathVariable Long id) {
+        Shoe shoe = shoeService.getById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Shoe not found with id: " + id));
+        return new ResponseEntity<>(shoe, HttpStatus.OK);
     }
 
     @PostMapping
-    public void saveShoe(@RequestBody Shoe shoe) {
-        shoeRepository.save(shoe);
+    public ResponseEntity<Shoe> createShoe(@RequestBody Shoe shoe) {
+        Shoe createdShoe = shoeService.create(shoe);
+        return new ResponseEntity<>(createdShoe, HttpStatus.CREATED);
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<Shoe> updateShoe(@PathVariable(value = "id") Long id, @RequestBody Shoe requestShoe){
-//        Optional<Shoe> shoe = shoeService.findById(id);
-//
-//        shoeService.save(requestShoe);
-//
-//        return ResponseEntity.ok(requestShoe);
+    @PutMapping("/{id}")
+    public ResponseEntity<Shoe> updateShoe(@PathVariable Long id, @RequestBody Shoe shoe) {
+        Shoe updatedShoe = shoeService.update(id, shoe);
+        return new ResponseEntity<>(updatedShoe, HttpStatus.OK);
+    }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteShoe(@PathVariable Long id) {
+        shoeService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

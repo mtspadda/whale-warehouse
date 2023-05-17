@@ -1,4 +1,4 @@
-package whalewarehouse;
+package model;
 
 public enum LocationType {
     GREEN,
