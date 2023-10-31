@@ -2,6 +2,7 @@ package service;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+import repository.BranchRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +12,7 @@ public abstract class GenericService<T, ID> {
 
     private JpaRepository<T, ID> repository;
 
-    public GenericService(JpaRepository<T, ID> repository) {
+    public GenericService(BranchRepository repository) {
         this.repository = repository;
     }
 
