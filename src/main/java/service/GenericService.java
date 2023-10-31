@@ -13,7 +13,7 @@ public abstract class GenericService<T, ID> {
     private JpaRepository<T, ID> repository;
 
     public GenericService(BranchRepository repository) {
-        this.repository = repository;
+        this.repository = (JpaRepository<T, ID>) repository;
     }
 
     public List<T> getAll() {
