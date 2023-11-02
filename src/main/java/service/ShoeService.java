@@ -7,12 +7,12 @@ import repository.ShoeRepository;
 
 
 @Service
-public class ShoeService extends GenericService<Shoe, Long> {
+public class ShoeService{
 
+    @Autowired
     private ShoeRepository repository;
 
     public ShoeService(ShoeRepository repository) {
-        super(repository);
-        this.repository = repository;
+        // Here will be the branch logic which will be use in branch controller
     }
 }
