@@ -1,5 +1,5 @@
 # Whale Warehouse REST API
-## ☠️💀 THIS API NEEDS TO BE REWRITE WITH PROPER USE OF JAVA 17+ ☠️💀!!
+## ☠️💀 THIS API NEEDS TO BE REWRITTEN WITH PROPER USE OF JAVA 17+ ☠️💀!!
 Whale Warehouse is a REST API built with Spring Boot 3 that allows you to manage a warehouse. 🐋🏬
 
 ## Getting Started
